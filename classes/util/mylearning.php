@@ -44,7 +44,8 @@ class mylearning {
                 WHERE
                     l.courseid > 1 AND l.userid = :userid
                 ORDER BY
-                    l.timeaccess DESC';
+                    l.timeaccess DESC
+                LIMIT 5';
 
         $params = [
             'userid' => $USER->id

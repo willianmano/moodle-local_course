@@ -30,3 +30,4 @@ $string['dologin'] = 'Do login to enrol on this course';
 $string['enrolnotavailable'] = 'Enrolment not available yet';
 $string['yourinstructor'] = 'Your Instructor Today';
 $string['mylearning'] = 'My learning';
+$string['nolearning'] = 'You haven\'t started your learning yet';

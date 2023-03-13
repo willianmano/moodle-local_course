@@ -93,6 +93,10 @@
     top: 70px !important;
 }
 
+.popover-region-mylearning .all-learning:empty + .empty-message {
+    display: block;
+}
+
 .popover-region-mylearning .popover-region-container,
 .popover-region-mylearning .popover-region-container .popover-region-content-container {
     height: initial;
