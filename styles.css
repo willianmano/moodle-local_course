@@ -1,0 +1,133 @@
+#page-local-course-index .courseheader {
+    min-height: 200px;
+    margin-bottom: 1rem;
+}
+
+#page-local-course-index figure {
+    margin: 0;
+}
+
+#page-local-course-index .w-full {
+    width: 100%;
+}
+
+#page-local-course-index .h-full {
+    height: 100%;
+}
+
+#page-local-course-index .object-cover {
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+#page-local-course-index .text-xs {
+    font-size: .8rem;
+}
+
+#page-local-course-index .h-px {
+    height: 1px;
+}
+
+#page-local-course-index .bg-grey-800 {
+    background-color: rgb(120 144 156 / 1);
+}
+
+#page-local-course-index .font-semibold {
+    font-weight: 600;
+}
+
+#page-local-course-index .gap-x-3 {
+    -moz-column-gap: .75rem;
+    column-gap: 0.75rem;
+}
+
+#page-local-course-index .font-light {
+    font-weight: 300;
+}
+
+#page-local-course-index .text-3xl {
+    font-size: 2.2rem;
+}
+
+#page-local-course-index .social-icon {
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    padding: 4px;
+    border-radius: 50%;
+    background-color: #0f47ad;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#page-local-course-index .rightside .teacher-image {
+    width: 100%;
+    height: 400px;
+}
+
+#page-local-course-index .rightside .content {
+    line-height: 1.6;
+}
+
+#page-local-course-index #page-header {
+    display: none;
+}
+
+#page-local-course-index #topofscroll {
+    margin-top: 2rem;
+    padding-top: 30px;
+}
+
+.popover-region-mylearning .popover-region-header-container {
+    height: 50px;
+    padding: 11px 20px 15px;
+    border-bottom: 1px solid rgba(120,130,140,.13);
+}
+
+#nav-mylearning-popover-container {
+    height: 100%;
+}
+
+.popover-region-mylearning .popover-region-container {
+    top: 70px !important;
+}
+
+.popover-region-mylearning .popover-region-container,
+.popover-region-mylearning .popover-region-container .popover-region-content-container {
+    height: initial;
+}
+
+.popover-region-mylearning .content-item-container.mylearning {
+    padding: .5rem;
+}
+
+.popover-region-mylearning .content-item-container.mylearning:hover {
+    background-color: #f8f9fa;
+    color: inherit;
+}
+
+.popover-region-mylearning .content-item-container.mylearning .content-item {
+    display: flex;
+}
+
+.popover-region-mylearning .content-item-container.mylearning .content-item .image img {
+    width: 80px;
+    height: 80px;
+}
+
+.popover-region-mylearning .content-item-container.mylearning .content-item .text {
+    padding: 0 .5rem;
+    flex: 1 auto;
+}
+
+.popover-region-mylearning .content-item-container.mylearning .content-item .text .progress {
+    border-radius: 0;
+}
+
+.popover-region-mylearning .popover-region-footer-container {
+    height: 50px;
+    padding: 15px 20px;
+    border: 1px solid #ddd;
+    margin: 0 -1px;
+}

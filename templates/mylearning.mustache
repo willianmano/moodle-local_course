@@ -1,0 +1,44 @@
+{{< core/popover_region }}
+    {{$classes}}popover-region-mylearning{{/classes}}
+    {{$attributes}}id="nav-mylearning-popover-container" data-contextid="{{contextid}}"{{/attributes}}
+
+    {{$togglelabel}}{{!
+        }} {{#str}} mylearning, local_course {{/str}} {{!
+    }}{{/togglelabel}}
+
+    {{$togglecontent}}
+        <i class="icon fa fa-graduation-cap fa-fw " title="{{#str}} mylearning, local_course {{/str}}" role="img" aria-label="{{#str}} mylearning, local_course {{/str}}"></i>
+    {{/togglecontent}}
+
+    {{$containerlabel}}{{#str}} mylearning, local_course {{/str}}{{/containerlabel}}
+
+    {{$headertext}}{{#str}} mylearning, local_course {{/str}}{{/headertext}}
+
+    {{$content}}
+        <div class="all-learning"
+             data-region="all-learning"
+             role="log"
+             aria-busy="false"
+             aria-atomic="false"
+             aria-relevant="additions">
+        </div>
+    {{/content}}
+
+    {{$anchor}}
+        <a class="see-all-link"
+           href="{{mycoursesurl}}">
+            <div class="popover-region-footer-container">
+                <div class="popover-region-seeall-text">{{#str}} mycourses {{/str}}</div>
+            </div>
+        </a>
+    {{/anchor}}
+{{/ core/popover_region }}
+{{#js}}
+    require(['jquery', 'local_course/mylearning'], function($, MyLearning) {
+        var container = $('#nav-mylearning-popover-container');
+
+        var myLearning = new MyLearning(container);
+
+        myLearning.registerEventListeners();
+    });
+{{/js}}

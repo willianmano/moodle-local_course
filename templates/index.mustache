@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-sm-12 col-md-9">
+        <div class="courseheader">
+            <img src="{{headerimage}}"
+                 class="h-full w-full object-cover rounded"
+                 alt="{{coursename}}">
+        </div>
+
+        <h2>{{coursename}}</h2>
+        <span class="badge badge-secondary mb-3">{{#str}}category{{/str}}: {{categoryname}}</span>
+
+        {{#syllabus}}
+            <div class="coursesummary">
+                {{{.}}}
+            </div>
+        {{/syllabus}}
+
+        {{{ enrolbuttons }}}
+    </div>
+    <div class="col-sm-12 col-md-3 rightside">
+        <div class="inner-content">
+            {{#teacher}}
+                <figure>
+                    <div class="overflow-hidden rounded teacher-image">
+                        <img src="{{image}}" alt="{{fullname}}" class="h-full w-full object-cover">
+                    </div>
+                    <figcaption class="mt-2 p-2">
+                        <h5 class="d-flex align-items-center gap-x-3 font-semibold">
+                            <span class="flex-shrink-0 text-xs">{{#str}}yourinstructor, local_course{{/str}}</span>
+                            <span class="h-px w-full bg-grey-800"></span>
+                        </h5>
+                        <h4 class="mt-2 text-2xl font-light">{{fullname}}</h4>
+                        {{#description}}
+                            <div class="mt-3 content">{{{.}}}</div>
+                        {{/description}}
+                    </figcaption>
+                </figure>
+            {{/teacher}}
+
+            {{#hascustomfields}}
+                <div class="p-2">
+                    <h5 class="d-flex align-items-center gap-x-3 font-semibold">
+                        <span class="flex-shrink-0 text-xs">Course details</span>
+                        <span class="h-px w-full bg-grey-800"></span>
+                    </h5>
+                    {{#customfields}}
+                        {{#hasvalue}}
+                            <h5 class="mb-0 font-light">{{name}}</h5>
+                            <p>{{{value}}}</p>
+                        {{/hasvalue}}
+                    {{/customfields}}
+                </div>
+            {{/hascustomfields}}
+
+            <div class="enrolbuttons">
+                {{{ enrolbuttons }}}
+            </div>
+        </div>
+    </div>
+</div>
