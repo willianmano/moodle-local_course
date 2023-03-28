@@ -23,3 +23,7 @@ function local_course_moove_additional_header() {
 
     return $renderer->render($contentrenderable);
 }
+
+function local_course_dom_additional_header() {
+    return local_course_moove_additional_header();
+}

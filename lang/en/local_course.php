@@ -28,6 +28,6 @@ $string['pluginname'] = 'Course preview';
 
 $string['dologin'] = 'Do login to enrol on this course';
 $string['enrolnotavailable'] = 'Enrolment not available yet';
-$string['yourinstructor'] = 'Your Instructor Today';
+$string['coursedetails'] = 'Course details';
 $string['mylearning'] = 'My learning';
 $string['nolearning'] = 'You haven\'t started your learning yet';
