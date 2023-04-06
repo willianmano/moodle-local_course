@@ -22,7 +22,7 @@ use renderable;
 use templatable;
 
 /**
- * Module comments renderable class.
+ * My learning renderable class.
  *
  * @package     local_course
  * @copyright   2023 Willian Mano {@link https://conecti.me}

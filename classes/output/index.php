@@ -23,7 +23,7 @@ use templatable;
 use renderer_base;
 
 /**
- * Module comments renderable class.
+ * Index renderable class.
  *
  * @package     local_course
  * @copyright   2023 Willian Mano {@link https://conecti.me}

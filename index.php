@@ -40,6 +40,7 @@ $PAGE->set_url($url);
 $PAGE->set_title($course->fullname);
 $PAGE->set_heading($course->fullname);
 
+
 $renderer = $PAGE->get_renderer('local_course');
 
 echo $renderer->header();

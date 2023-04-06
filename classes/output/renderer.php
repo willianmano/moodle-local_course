@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Module comments main renderer
+ * Main renderer
  *
  * @package     local_course
  * @copyright   2023 Willian Mano {@link https://conecti.me}
@@ -32,5 +32,11 @@ class renderer extends plugin_renderer_base {
         $data = $page->export_for_template($this);
 
         return parent::render_from_template('local_course/index', $data);
+    }
+
+    public function render_seotags(renderable $page) {
+        $data = $page->export_for_template($this);
+
+        return parent::render_from_template('local_course/seotags', $data);
     }
 }
