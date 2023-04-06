@@ -62,7 +62,7 @@ function local_course_before_standard_html_head() {
 
     $coursename = format_string($COURSE->fullname);
 
-    $courseimg = $coursesupport->get_courseimage();
+    $courseimg = $coursesupport->get_headerimage();
 
     $coursesummary = format_string($coursesupport->get_summary());
 
