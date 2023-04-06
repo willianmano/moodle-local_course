@@ -33,13 +33,12 @@ $context = \context_course::instance($course->id);
 $url = new moodle_url('/local/course/index.php', ['id' => $id]);
 
 $PAGE->set_context($context);
-if (has_capability('moodle/course:update', $context)) {
+if (has_capability('moodle/course:update', $context) || !isloggedin()) {
     $PAGE->set_course($course);
 }
 $PAGE->set_url($url);
 $PAGE->set_title($course->fullname);
 $PAGE->set_heading($course->fullname);
-
 
 $renderer = $PAGE->get_renderer('local_course');
 
