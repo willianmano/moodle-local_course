@@ -30,6 +30,10 @@ $course = $DB->get_record('course', ['id' => $id], '*', MUST_EXIST);
 
 $context = \context_course::instance($course->id);
 
+if (is_enrolled($context)) {
+    redirect(new moodle_url('/course/view.php', ['id' => $id]));
+}
+
 $url = new moodle_url('/local/course/index.php', ['id' => $id]);
 
 $PAGE->set_context($context);
