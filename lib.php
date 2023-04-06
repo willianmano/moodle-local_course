@@ -60,11 +60,11 @@ function local_course_before_standard_html_head() {
 
     $coursesupport = new \local_course\util\course($courselistelement);
 
-    $coursename = format_text($COURSE->fullname);
+    $coursename = format_string($COURSE->fullname);
 
     $courseimg = $coursesupport->get_courseimage();
 
-    $coursesummary = $coursesupport->get_summary();
+    $coursesummary = format_string($coursesupport->get_summary());
 
     // Geral.
     $seocontent .= "<meta name='description' content='{$coursesummary}'>";
