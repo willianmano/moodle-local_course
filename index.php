@@ -24,6 +24,9 @@
 
 require(__DIR__.'/../../config.php');
 
+// TODO: Remover isso.
+require_login();
+
 $id = required_param('id', PARAM_INT);
 
 $course = $DB->get_record('course', ['id' => $id], '*', MUST_EXIST);
