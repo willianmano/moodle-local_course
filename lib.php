@@ -24,10 +24,6 @@ function local_course_moove_additional_header() {
     return $renderer->render($contentrenderable);
 }
 
-function local_course_dom_additional_header() {
-    return local_course_moove_additional_header();
-}
-
 function local_course_before_standard_html_head() {
     global $PAGE, $COURSE, $DB;
 
