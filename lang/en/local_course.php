@@ -31,4 +31,4 @@ $string['enrolnotavailable'] = 'Enrolment not available yet';
 $string['coursedetails'] = 'Course details';
 $string['mylearning'] = 'My learning';
 $string['nolearning'] = 'You haven\'t started your learning yet';
-$string['backtocourse'] = 'Voltar para o curso';
+$string['backtocourse'] = 'Back to course';

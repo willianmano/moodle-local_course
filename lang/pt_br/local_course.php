@@ -31,4 +31,4 @@ $string['enrolnotavailable'] = 'Matrícula não disponível';
 $string['coursedetails'] = 'Detalhes do curso';
 $string['mylearning'] = 'Meu aprendizado';
 $string['nolearning'] = 'Vocâ não iniciou seu aprendizado ainda';
-$string['backtocourse'] = 'Back to course';
+$string['backtocourse'] = 'Voltar para o curso';
