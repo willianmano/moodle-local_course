@@ -2,18 +2,23 @@
     {{#enrolinstances}}
         {{#id}}
             {{#cost}}
-                <form autocomplete="off" action="{{ config.wwwroot }}/enrol/pagseguro/process.php" method="post" accept-charset="utf-8" class="mform mt-2">
-                    <div class="d-none">
-                        <input name="courseid" type="hidden" value="{{ courseid }}">
-                        <input name="instanceid" type="hidden" value=" {{ id }}">
-                        <input name="cost" type="hidden" value="{{ cost }}">
-                        <input name="usersubmitted" type="hidden" value="1">
-                        <input name="sesskey" type="hidden" value="{{ config.sesskey }}">
-                        <input name="_qf__enrol_{{ enrol }}_enrol_form" type="hidden" value="1">
-                    </div>
+                {{#isfee}}
+                    <a class="btn {{ class }} btn-lg btn-block" href="{{config.wwwroot}}/enrol/index.php?id={{courseid}}">{{ name }}</a>
+                {{/isfee}}
+                {{^isfee}}
+                    <form autocomplete="off" action="{{ config.wwwroot }}/enrol/pagseguro/process.php" method="post" accept-charset="utf-8" class="mform mt-2">
+                        <div class="d-none">
+                            <input name="courseid" type="hidden" value="{{ courseid }}">
+                            <input name="instanceid" type="hidden" value=" {{ id }}">
+                            <input name="cost" type="hidden" value="{{ cost }}">
+                            <input name="usersubmitted" type="hidden" value="1">
+                            <input name="sesskey" type="hidden" value="{{ config.sesskey }}">
+                            <input name="_qf__enrol_{{ enrol }}_enrol_form" type="hidden" value="1">
+                        </div>
 
-                    <input type="submit" class="btn {{ class }} btn-lg btn-block" name="submitbutton" id="id_submitbutton" value="{{ name }}">
-                </form>
+                        <input type="submit" class="btn {{ class }} btn-lg btn-block" name="submitbutton" id="id_submitbutton" value="{{ name }}">
+                    </form>
+                {{/isfee}}
             {{/cost}}
             {{^cost}}
                 <form autocomplete="off" action="{{ config.wwwroot }}/enrol/index.php" method="post" accept-charset="utf-8" class="mform mt-2">

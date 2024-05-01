@@ -66,6 +66,7 @@ class enrolment {
                 $enrolinstances[] = [
                     'id' => $instance->id,
                     'enrol' => $instance->enrol,
+                    'isfee' => $instance->enrol == 'fee',
                     'courseid' => $instance->courseid,
                     'name' => $instance->name ?: get_string('enrolme', 'enrol_self'),
                     'cost' => $instance->cost ? number_format($instance->cost, 2, ',', '.') : false,
@@ -88,7 +89,7 @@ class enrolment {
     }
 
     protected function is_enrolinstance_enabled($instance) {
-        if (!in_array($instance->enrol, ['self', 'pagseguro'])) {
+        if (!in_array($instance->enrol, ['self', 'pagseguro', 'fee'])) {
             return false;
         }
 

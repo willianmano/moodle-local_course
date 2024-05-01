@@ -44,14 +44,13 @@ class mylearning {
                 WHERE
                     l.courseid > 1 AND l.userid = :userid
                 ORDER BY
-                    l.timeaccess DESC
-                LIMIT 5';
+                    l.timeaccess DESC';
 
         $params = [
             'userid' => $USER->id
         ];
 
-        if (!$courses = $DB->get_records_sql($sql, $params)) {
+        if (!$courses = $DB->get_records_sql($sql, $params, 0, $limit)) {
             return [];
         }
 
@@ -65,7 +64,7 @@ class mylearning {
 
             $data[] = [
                 'id' => $course->id,
-                'shortnmame' => $course->shortnmame,
+                'shortnmame' => $course->shortname,
                 'fullname' => $course->fullname,
                 'image' => $utilcourse->get_courseimage(),
                 'lastaccess' => userdate($course->timeaccess, '%d/%m/%Y %H:%M:%S'),
