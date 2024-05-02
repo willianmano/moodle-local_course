@@ -89,7 +89,7 @@ class enrolment {
     }
 
     protected function is_enrolinstance_enabled($instance) {
-        if (!in_array($instance->enrol, ['self', 'pagseguro', 'fee'])) {
+        if (!in_array($instance->enrol, ['self', 'pagseguro', 'apply', 'gapply', 'fee'])) {
             return false;
         }
 
