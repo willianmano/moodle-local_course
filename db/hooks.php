@@ -15,41 +15,19 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Course preview page
+ * Hooks API definition
  *
  * @package     local_course
  * @copyright   2023 Willian Mano {@link https://conecti.me}
  * @author      Willian Mano <willianmanoaraujo@gmail.com>
  */
 
-require(__DIR__.'/../../config.php');
+defined('MOODLE_INTERNAL') || die();
 
-$id = required_param('id', PARAM_INT);
-
-$course = $DB->get_record('course', ['id' => $id], '*', MUST_EXIST);
-
-$context = \core\context\course::instance($course->id);
-
-if (is_enrolled($context)) {
-    redirect(new \moodle_url('/course/view.php', ['id' => $id]));
-}
-
-$url = new \moodle_url('/local/course/index.php', ['id' => $id]);
-
-$PAGE->set_context($context);
-if (has_capability('moodle/course:update', $context) || !isloggedin()) {
-    $PAGE->set_course($course);
-}
-$PAGE->set_url($url);
-$PAGE->set_title($course->fullname);
-$PAGE->set_heading($course->fullname);
-
-$renderer = $PAGE->get_renderer('local_course');
-
-echo $renderer->header();
-
-$page = new \local_course\output\index($context, $course);
-
-echo $renderer->render($page);
-
-echo $OUTPUT->footer();
+$callbacks = [
+    [
+        'hook' => \core\hook\output\before_standard_head_html_generation::class,
+        'callback' => local_course\local\hook_callbacks::class . '::before_standard_head_html_generation',
+        'priority' => 500,
+    ],
+];

@@ -44,7 +44,6 @@ class index implements renderable, templatable {
         $coursesupport = new course($courselistelement);
 
         $customfields = $coursesupport->get_custom_fields();
-        $teacher = $coursesupport->get_teacher();
 
         $enrolement = new enrolment($courselistelement);
         $enrolementinstances = $enrolement->get_enrolment_instances();
@@ -54,11 +53,15 @@ class index implements renderable, templatable {
             'coursename' => $courselistelement->get_formatted_fullname(),
             'courseimage' => $coursesupport->get_courseimage(),
             'categoryname' => $coursesupport->get_category_name(),
-            'headerimage' => $coursesupport->get_headerimage(),
             'hascustomfields' => (bool)count($customfields),
             'customfields' => $customfields,
-            'teacher' => $teacher,
+            'summary' => $coursesupport->get_summary(),
             'syllabus' => $coursesupport->get_syllabus(),
+            'level' => $coursesupport->get_level(),
+            'paymentmode' => $coursesupport->get_paymentmode(),
+            'partnersimg' => $coursesupport->get_partnersimg_url(),
+            'audience' => $coursesupport->get_audience(),
+            'duration' => $coursesupport->get_duration(),
             'enrolbuttons' => $output->render_from_template('local_course/enrol_buttons', $enrolementinstances)
         ];
 

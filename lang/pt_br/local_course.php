@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Course preview';
 
-$string['dologin'] = 'Faça login para se inscrever neste curso';
+$string['dologin'] = 'Acesse ou inscreva-se';
 $string['enrolnotavailable'] = 'Matrícula não disponível';
 $string['coursedetails'] = 'Detalhes do curso';
 $string['mylearning'] = 'Meu aprendizado';

@@ -80,17 +80,17 @@ class course {
         return $OUTPUT->get_generated_image_for_id($this->course->id);
     }
 
-    public function get_headerimage() {
+    public function get_partnersimg_url() {
         global $CFG;
 
-        if ($this->course->format != 'preview') {
+        if ($this->course->format != 'olm') {
             return $this->get_courseimage();
         }
 
-        $file = format_preview_get_file('headerimage', $this->course->id, $this->coursewithformatoptions->headerimage);
+        $file = format_olm_get_file($this->coursewithformatoptions->partnersimg);
 
         if (!$file) {
-            return new moodle_url('/local/course/pix/bg2.png');
+            return false;
         }
 
         $url = "$CFG->wwwroot/pluginfile.php/" .
@@ -168,16 +168,41 @@ class course {
     }
 
     public function get_syllabus() {
-        if ($this->course->format != 'preview') {
-            return $this->get_summary();
+        if ($this->course->format != 'olm') {
+            return false;
         }
 
-        $syllabus = \format_text($this->coursewithformatoptions->syllabus_editor['text'], $this->coursewithformatoptions->syllabus_editor['format']);
+        $syllabus = \format_text($this->coursewithformatoptions->syllabus);
 
         if (!empty($syllabus)) {
             return $syllabus;
         }
 
-        return $this->get_summary();
+        return false;
+    }
+
+    public function get_level()
+    {
+        if (!isset($this->coursewithformatoptions->level) || empty($this->coursewithformatoptions->level)) {
+            return false;
+        }
+
+        return get_string($this->coursewithformatoptions->level, 'format_olm');
+    }
+
+    public function get_paymentmode() {
+        if (!isset($this->coursewithformatoptions->paymentmode) || empty($this->coursewithformatoptions->paymentmode)) {
+            return false;
+        }
+
+        return get_string($this->coursewithformatoptions->paymentmode, 'format_olm');
+    }
+
+    public function get_audience() {
+        return $this->coursewithformatoptions->audience ?? false;
+    }
+
+    public function get_duration() {
+        return $this->coursewithformatoptions->duration ?? false;
     }
 }
