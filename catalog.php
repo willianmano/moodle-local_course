@@ -15,34 +15,33 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Main renderer
+ * Course catalog page.
  *
  * @package     local_course
- * @copyright   2023 Willian Mano {@link https://conecti.me}
+ * @copyright   2025 Willian Mano {@link https://conecti.me}
  * @author      Willian Mano <willianmanoaraujo@gmail.com>
  */
 
-namespace local_course\output;
+require(__DIR__ . '/../../config.php');
 
-use plugin_renderer_base;
-use renderable;
+$search = optional_param('search', '', PARAM_TEXT);
+$categoryid = optional_param('category', 0, PARAM_INT);
 
-class renderer extends plugin_renderer_base {
-    public function render_index(renderable $page) {
-        $data = $page->export_for_template($this);
+$context = \core\context\system::instance();
 
-        return parent::render_from_template('local_course/index', $data);
-    }
+$url = new \moodle_url('/local/course/catalog.php', ['search' => $search, 'categoryid' => $categoryid]);
 
-    public function render_catalog(renderable $page) {
-        $data = $page->export_for_template($this);
+$PAGE->set_context($context);
+$PAGE->set_url($url);
+$PAGE->set_title(get_string('catalog', 'local_course'));
+$PAGE->set_pagelayout('standard');
 
-        return parent::render_from_template('local_course/catalog', $data);
-    }
+$renderer = $PAGE->get_renderer('local_course');
 
-    public function render_seotags(renderable $page) {
-        $data = $page->export_for_template($this);
+echo $renderer->header();
 
-        return parent::render_from_template('local_course/seotags', $data);
-    }
-}
+$page = new \local_course\output\catalog($search, $categoryid);
+
+echo $renderer->render($page);
+
+echo $OUTPUT->footer();

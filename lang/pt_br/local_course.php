@@ -32,3 +32,14 @@ $string['coursedetails'] = 'Detalhes do curso';
 $string['mylearning'] = 'Meu aprendizado';
 $string['nolearning'] = 'Vocâ não iniciou seu aprendizado ainda';
 $string['backtocourse'] = 'Voltar para o curso';
+
+$string['catalog'] = 'Catálogo de Cursos';
+$string['catalogsubtitle'] = 'Explore nossos cursos e encontre o aprendizado ideal para você';
+$string['allcourses'] = 'Todos';
+$string['searchcourses'] = 'Buscar cursos...';
+$string['filterbycategory'] = 'Filtrar por categoria';
+$string['coursefound'] = 'curso(s) encontrado(s)';
+$string['clearsearch'] = 'Limpar busca';
+$string['viewcourse'] = 'Ver curso';
+$string['noresults'] = 'Nenhum curso encontrado';
+$string['noresultsdesc'] = 'Tente buscar por outro termo ou explore todas as categorias.';

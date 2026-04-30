@@ -1,0 +1,136 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_course/catalog
+
+    Course catalog with search and category filters.
+
+    Example context (json):
+    {
+        "search": "php",
+        "hassearch": true,
+        "categoryid": 0,
+        "categories": [{"id":0,"name":"Todos","active":true,"url":"#"},{"id":1,"name":"Tecnologia","active":false,"url":"#"}],
+        "courses": [{"id":1,"fullname":"Curso de PHP","categoryname":"Tecnologia","image":"/img.jpg","url":"#","summary":"Aprenda PHP do zero","hassummary":true}],
+        "hascourses": true,
+        "totalcount": 1,
+        "baseurl": "#",
+        "searchaction": "#"
+    }
+}}
+
+<div id="local-course-catalog">
+
+    <div class="catalog-hero">
+        <div class="eskada-container-fluid">
+            <h1 class="catalog-title">{{#str}}catalog, local_course{{/str}}</h1>
+            <p class="catalog-subtitle">{{#str}}catalogsubtitle, local_course{{/str}}</p>
+
+            <form method="get" action="{{searchaction}}" class="catalog-search">
+                {{#categoryid}}
+                    <input type="hidden" name="category" value="{{categoryid}}">
+                {{/categoryid}}
+                <div class="catalog-search-group">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <input type="text"
+                           name="search"
+                           value="{{search}}"
+                           placeholder="{{#str}}searchcourses, local_course{{/str}}"
+                           class="form-control"
+                           aria-label="{{#str}}searchcourses, local_course{{/str}}">
+                    <button type="submit" class="btn btn-primary">
+                        {{#str}}search, core{{/str}}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="catalog-body">
+        <div class="eskada-container-fluid">
+
+            <div class="catalog-filters" role="navigation" aria-label="{{#str}}filterbycategory, local_course{{/str}}">
+                {{#categories}}
+                    <a href="{{{url}}}" class="catalog-filter-btn {{#active}}active{{/active}}">{{name}}</a>
+                {{/categories}}
+            </div>
+
+            <div class="catalog-results-info">
+                <span>
+                    {{totalcount}} {{#str}}coursefound, local_course{{/str}}{{#hassearch}}&nbsp;&mdash; &ldquo;<strong>{{search}}</strong>&rdquo;{{/hassearch}}
+                </span>
+                {{#hassearch}}
+                    <a href="{{{baseurl}}}" class="catalog-clear-search">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                        {{#str}}clearsearch, local_course{{/str}}
+                    </a>
+                {{/hassearch}}
+            </div>
+
+            {{#hascourses}}
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 catalog-grid">
+                {{#courses}}
+                <div class="col my-3">
+                    <div class="card h-100 dashboard-card" role="listitem">
+                        <a href="{{{url}}}" tabindex="-1">
+                            <div class="card-img dashboard-card-img" style="background-image: url({{{image}}});">
+                                <span class="sr-only">{{fullname}}</span>
+                            </div>
+                        </a>
+                        <div class="card-body course-info-container">
+                            {{#categoryname}}
+                            <div class="course-category mb-2">
+                                {{categoryname}}
+                            </div>
+                            {{/categoryname}}
+                            <a href="{{{url}}}" class="aalink coursename mt-3">
+                                {{fullname}}
+                            </a>
+                            <div class="buttons mt-2">
+                                <a href="{{{url}}}">
+                                    <div class="btn-entrar">
+                                        <div class="text">entrar</div>
+                                        <div class="arrow-icon">
+                                            <i class="fa fa-arrow-right"></i>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/courses}}
+            </div>
+            {{/hascourses}}
+
+            {{^hascourses}}
+            <div class="catalog-empty">
+                <div class="catalog-empty-icon">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+                <h3>{{#str}}noresults, local_course{{/str}}</h3>
+                <p>{{#str}}noresultsdesc, local_course{{/str}}</p>
+                <a href="{{{baseurl}}}" class="btn btn-outline-primary">
+                    {{#str}}allcourses, local_course{{/str}}
+                </a>
+            </div>
+            {{/hascourses}}
+
+        </div>
+    </div>
+
+</div>

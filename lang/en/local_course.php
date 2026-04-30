@@ -32,3 +32,14 @@ $string['coursedetails'] = 'Course details';
 $string['mylearning'] = 'My learning';
 $string['nolearning'] = 'You haven\'t started your learning yet';
 $string['backtocourse'] = 'Back to course';
+
+$string['catalog'] = 'Course Catalog';
+$string['catalogsubtitle'] = 'Explore our courses and find the ideal learning for you';
+$string['allcourses'] = 'All';
+$string['searchcourses'] = 'Search courses...';
+$string['filterbycategory'] = 'Filter by category';
+$string['coursefound'] = 'course(s) found';
+$string['clearsearch'] = 'Clear search';
+$string['viewcourse'] = 'View course';
+$string['noresults'] = 'No courses found';
+$string['noresultsdesc'] = 'Try searching for another term or browse all categories.';
