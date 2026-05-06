@@ -87,7 +87,7 @@ class course {
             return $this->get_courseimage();
         }
 
-        $file = format_olm_get_file($this->coursewithformatoptions->partnersimg);
+        $file = format_olm_get_file('partnersimg', $this->course->id, $this->coursewithformatoptions->partnersimg);
 
         if (!$file) {
             return false;
@@ -172,7 +172,11 @@ class course {
             return false;
         }
 
-        $syllabus = \format_text($this->coursewithformatoptions->syllabus);
+        if (empty($this->coursewithformatoptions->syllabus_editor['text'])) {
+            return false;
+        }
+
+        $syllabus = \format_text($this->coursewithformatoptions->syllabus_editor['text'], $this->coursewithformatoptions->syllabus_editor['format']);
 
         if (!empty($syllabus)) {
             return $syllabus;
