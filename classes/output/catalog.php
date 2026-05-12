@@ -70,7 +70,7 @@ class catalog implements renderable, templatable {
             ],
         ];
 
-        $rootcategory = core_course_category::get(0);
+        $rootcategory = core_course_category::get(2);
 
         foreach ($rootcategory->get_children() as $cat) {
             if (!$cat->visible) {
