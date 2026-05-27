@@ -111,7 +111,7 @@ class catalog implements renderable, templatable {
             $params = array_merge($params, $inparams);
         }
 
-        $sql = "SELECT c.* FROM {course} c WHERE {$where} ORDER BY c.fullname ASC";
+        $sql = "SELECT c.* FROM {course} c WHERE {$where} ORDER BY c.sortorder ASC";
 
         return $DB->get_records_sql($sql, $params, 0, 60);
     }
